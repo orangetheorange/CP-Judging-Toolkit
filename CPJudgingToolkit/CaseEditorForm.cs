@@ -9,10 +9,10 @@ internal sealed class CaseEditorForm : Form
 
     public TestCase TestCase { get; private set; }
 
-    public CaseEditorForm(TestCase? testCase = null)
+    public CaseEditorForm(TestCase? testCase = null, string? defaultName = null)
     {
         TestCase = testCase is null
-            ? new TestCase()
+            ? new TestCase { Name = defaultName ?? new TestCase().Name }
             : new TestCase
             {
                 Name = testCase.Name,
